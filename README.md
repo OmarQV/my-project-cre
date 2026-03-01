@@ -35,7 +35,7 @@ Para trabajar con Chainlink CRE en tu máquina local (Windows o Unix) desde este
    El flujo natural de desarrollo en CRE exige que las simulaciones se ejecuten **desde la raíz del Workspace**, referenciando el `workflow.yaml` individual de cada carpeta. Por ejemplo, para hacer correr el Hello World:
 
    ```bash
-   cre workflow simulate hellow_world_TS/workflow.yaml --target=staging-settings
+   cre workflow simulate hellow_world_TS --target staging-settings
    ```
 
 ---

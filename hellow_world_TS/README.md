@@ -42,7 +42,7 @@ Automatizar tareas es vital en web3 para que los *Smart Contracts* no dependan d
 
 ```mermaid
 mindmap
-  root((Workflows Basados<br/>en Cron))
+  root((Workflows Basados\nen Cron))
     Mantenimiento On-Chain
       Liquidaciones en DeFi
       Distribución de recompensas
@@ -70,14 +70,12 @@ sequenceDiagram
     participant W as Workflow Runner
     participant H as onCronTrigger()
     
-    rect rgb(240, 245, 255)
-        note right of CRE: Cron schedule reached (ej: */5 * * * *)
-        CRE->>W: Dispara el evento del Handler
-        W->>H: Pasa el contexto (Runtime Config)
-        H-->>H: Imprime log: "Hello world! Workflow triggered."
-        H-->>W: Retorna el string "Hello world!"
-        W-->>CRE: Marca la ejecución como exitosa
-    end
+    note right of CRE: Cron schedule reached (ej: */5 * * * *)
+    CRE->>W: Dispara el evento del Handler
+    W->>H: Pasa el contexto (Runtime Config)
+    H-->>H: Imprime log: "Hello world! Workflow triggered."
+    H-->>W: Retorna el string "Hello world!"
+    W-->>CRE: Marca la ejecución como exitosa
 ```
 
 1. **Trigger Configurado:** En `main.ts`, se usa `cron.trigger(...)` con un horario configurado (*schedule*).
@@ -110,7 +108,7 @@ bun install
 ### 4. Simular el Flujo de Trabajo
 Para iniciar la simulación local de Chainlink CRE, regresa a la **raíz del proyecto** (`my-project-cre`) y ejecuta:
 ```bash
-cre workflow simulate hellow_world_TS/workflow.yaml --target=staging-settings
+cre workflow simulate hellow_world_TS --target staging-settings
 ```
 *Tip: El parámetro `--target` hace que el CLI busque en `workflow.yaml` y asigne `config.staging.json` y la ruta al manejador `main.ts` correctamente.*
 
