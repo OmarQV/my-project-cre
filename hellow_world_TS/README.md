@@ -112,6 +112,28 @@ cre workflow simulate hellow_world_TS --target staging-settings
 ```
 *Tip: El parámetro `--target` hace que el CLI busque en `workflow.yaml` y asigne `config.staging.json` y la ruta al manejador `main.ts` correctamente.*
 
+**Salida Esperada:**
+```text
+! Using default private key for chain write simulation. To use your own key, set CRE_ETH_PRIVATE_KEY in your .env file or system environment.
+✓ Workflow compiled
+2026-02-28T23:57:27Z [SIMULATION] Simulator Initialized
+
+2026-02-28T23:57:27Z [SIMULATION] Running trigger trigger=cron-trigger@1.0.0
+2026-02-28T23:57:27Z [USER LOG] Hello world! Workflow triggered.
+
+✓ Workflow Simulation Result:
+"Hello world!"
+
+2026-02-28T23:57:27Z [SIMULATION] Execution finished signal received
+2026-02-28T23:57:27Z [SIMULATION] Skipping WorkflowEngineV2
+
+╭──────────────────────────────────────────────────────╮
+│ Simulation complete! Ready to deploy your workflow?  │
+│                                                      │
+│ Run cre account access to request deployment access. │
+╰──────────────────────────────────────────────────────╯
+```
+
 ---
 
 ## 🧪 Pruebas (Tests)
@@ -119,9 +141,24 @@ cre workflow simulate hellow_world_TS --target staging-settings
 Mantener el código determinista es crucial en aplicaciones descentralizadas de CRE. Por eso este template viene con una serie de pruebas pre-compiladas en `main.test.ts`.
 
 ### ¿Cómo correr las pruebas?
-Dentro de la carpeta `hellow_world_TS`, ejecuta el test-runner en tu terminal:
+Desde la raíz o dentro de la carpeta `hellow_world_TS`, ejecuta el test-runner de bun en tu terminal:
 ```bash
 bun test
+```
+
+Ejemplo de salida exitosa:
+```text
+bun test v1.3.8 (b64edcb4)
+
+hellow_world_TS\main.test.ts:
+✓ onCronTrigger > logs message and returns greeting [16.00ms]
+✓ initWorkflow > returns one handler with correct cron schedule
+✓ initWorkflow > handler executes onCronTrigger and returns result
+
+ 3 pass
+ 0 fail
+ 6 expect() calls
+Ran 3 tests across 1 file. [5.14s]
 ```
 
 ### ¿Qué comprueban los tests?
