@@ -41,6 +41,7 @@ graph TD
 Automatizar tareas es vital en web3 para que los *Smart Contracts* no dependan de scripts externos y variables frágiles.
 
 ```mermaid
+%%{init: {'theme': 'default', 'themeVariables': { 'nodeBorder': '#222', 'mainBkg': '#E8ECF1', 'nodeTextColor': '#111', 'fontFamily': 'arial', 'lineColor': '#222'}}}%%
 mindmap
   root((Workflows Basados\nen Cron))
     Mantenimiento On-Chain
@@ -53,7 +54,7 @@ mindmap
       Chequeos de Salud de Nodos
     Interconexión de Sistemas
       Pagos recurrentes / Suscripciones
-      Sincronizaciones de base de datos
+      Sincronizaciones de BD
 ```
 
 Aunque este ejemplo simplemente imprime un log "Hello world!", la base es la misma para cualquiera de estos sistemas que necesiten de un entorno autónomo repetitivo.
